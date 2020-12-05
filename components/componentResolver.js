@@ -1,18 +1,11 @@
-import MainHero from './Hero';
-import CallToAction from './CallToAction/CallToAction';
-import PersonalizedHero from './PersonalizedHero';
-import TalkList from './TalkList/TalkList';
-import RegisterForm from './RegisterForm';
-import WhyAttend from './WhyAttend';
-
 const componentMap = {
-  hero: MainHero,
-  cta: CallToAction,
+  hero: () => import('./Hero'),
+  cta: () => import('./CallToAction/CallToAction'),
   // that's 'personalized hero' to you, sir.
-  '3zPkEj1KqeSn4QdsdnNKO3': PersonalizedHero,
-  talksList: TalkList,
-  registrationForm: RegisterForm,
-  whyAttend: WhyAttend,
+  '3zPkEj1KqeSn4QdsdnNKO3': () => import('./PersonalizedHero'),
+  talksList: () => import('./TalkList/TalkList'),
+  registrationForm: () => import('./RegisterForm'),
+  whyAttend: () => import('./WhyAttend'),
 };
 
 export function componentResolver(variantType) {

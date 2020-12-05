@@ -32,12 +32,10 @@
 </template>
 
 <script>
-import Splitter from './Splitter';
-
 export default {
   name: 'Hero',
   components: {
-    Splitter,
+    Splitter: () => import('./Splitter'),
   },
   props: {
     fields: {

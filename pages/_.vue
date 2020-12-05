@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer';
+import { Personalize } from '@uniformdev/optimize-tracker-vue';
+import { contentfulOptimizeListReader } from '@uniformdev/optimize-tracker-contentful';
 
 export default {
   components: {
-    Navbar,
-    Footer,
+    Navbar: () => import('@/components/Navbar/Navbar'),
+    Footer: () => import('@/components/Footer'),
   },
   asyncData(nuxtContext) {
     // eslint-disable-next-line no-unused-vars
@@ -36,6 +36,11 @@ export default {
       const talks = results[1];
       return { talks, page, slug: route.path };
     });
+  },
+  // not sure if this can be done
+  provide: {
+    'Personalize': Personalize,
+    'contentfulOptimizeListReader': contentfulOptimizeListReader
   },
   computed: {
     componentResolver() {
