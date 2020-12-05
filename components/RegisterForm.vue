@@ -25,12 +25,10 @@
 </template>
 
 <script>
-import Splitter from './Splitter';
-
 export default {
   name: 'RegisterForm',
   components: {
-    Splitter,
+    Splitter: () => import('./Splitter'),
   },
   props: {
     fields: {
